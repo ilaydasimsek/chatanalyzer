@@ -1,0 +1,59 @@
+<head>
+    {% load static %}
+    <script src="{% static 'script/chart_ajax.js' %}"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel = "stylesheet" type="text/css" href = "{% static 'css/statistics.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script>
+         var currentUser = "{%  url "analyzer:current_user" %}";
+         var username = {{user.username}}
+             $(document).ready(pageLoad);
+    </script>
+
+    <style>
+        .w3-lobster{
+            font-family: 'Lobster', serif;
+            text-align: center;
+            color: white;
+            font-size: 32px;
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="w3-container" style="margin-top:0px" id="showcase">
+                    <h1 class="w3-half w3-lobster" style = 'text-align: left;color:#064752'><b>Statistics of {{user.username}}</b></h1>
+
+    </div>
+
+    <h6 class="btn w3-buttonColor w3-lobster" style="font-size:25px;margin:50px;"  onclick=" hide_show_length()" id = 'length_chart_button' >My message length statistics</h6>
+    <h6 class="btn w3-buttonColor w3-lobster" style="font-size:25px;margin:50px;"  onclick="hide_show_time()" id = 'time_chart_button' >My answer time statistics</h6>
+    <h6 class="btn w3-buttonColor w3-lobster" style="font-size:25px;margin:50px;"  onclick=" hide_show_positivity()" id = 'positivity_button' >How positive am I?</h6>
+
+        <div id = "length" style = "width:300px;height:300px;top:50%;left:50%;">
+            <div class = "col-sm-6" style="width:550px;height:550px;left:39%;position:absolute">
+                <canvas id="lengthChart" width="100" height="100"></canvas>
+            </div>
+        </div>
+        <div id = "time" style="top:50%;left:50%">
+             <div class = "col-sm-6" style="width:550px;height:550px;left:39%;position:absolute">
+                <canvas id="timeChart" width="100" height="100"></canvas>
+            </div>
+        </div>
+        <div id = "positivity" style="top:100%;left:80%;">
+            <h3 style = "top:30%;left:45%;position:absolute;border:5px solid #074954;border-radius:15px;color:#074954;width:300px;height:100px" class = "w3-lobster" >You are {{ positivity_percentage }}% positive!</h3>
+        </div>
+
+</body>

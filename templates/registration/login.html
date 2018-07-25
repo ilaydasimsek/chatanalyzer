@@ -1,0 +1,31 @@
+
+{% load static %}
+
+<style>
+    body{
+        background-size:cover;
+    }
+
+</style>
+
+<link rel = "stylesheet" type="text/css" href = "{% static 'css/login.css' %}">
+
+    <head>
+
+    <link rel = "stylesheet" type="text/css" href = "{% static 'css/index.css' %}">
+    <meta charset="UTF-8">
+    <title>Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body background={% static 'images/background.png' %}>
+    <div id = "signinForm">
+        <h1 style="font-size: 230%">Login</h1>
+
+        <form method="post" style="font-size: 140%">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class = "btn btn-primary btn-lg" type="">Login</button>
+        </form>
+
+    </div>
+</body>

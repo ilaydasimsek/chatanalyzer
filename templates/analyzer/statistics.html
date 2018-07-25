@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+{% load static %}
+<script src="{% static 'script/chart_ajax.js' %}"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="{% static 'script/statistics_ajax.js' %}"></script>
+ <script>
+     var suggestFriends = "{% url "analyzer:suggest_friends" %}";
+     var findOwner = "{% url "analyzer:find_owner" %}";
+     var currentUser = "{%  url "analyzer:current_user" %}";
+ </script>
+<title>Statistics</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel = "stylesheet" type="text/css" href = "{% static 'css/statistics.css' %}">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<style>
+    .w3-tangerine {
+      font-family: 'Tangerine', serif;
+      text-align: center;
+    }
+    .w3-lobster{
+        font-family: 'Lobster', serif;
+        text-align: center;
+        color: white;
+    }
+    .w3-lobster:hover {
+        color:white;
+
+    }
+
+    body{
+        background-size:100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+}
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+
+
+</head>
+<body background={% static 'images/backgstat.png' %}>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-mycolor w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:400px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="btn w3-buttonColor btn-block w3-lobster w3-hide-large w3-display-topleft" style="width:100%;font-size:25px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64 w3-tangerine" style = "font-size:60px;color:#063640;"><b>Here are your statistics {{user.first_name}}!</b></h3>
+
+    <h6 class=" w3-tangerine" style = "font-size:50px;color:#0a5c6d"><b>Find your match</b></h6>
+
+  </div>
+  <h6 class="btn w3-buttonColor btn-block w3-lobster" style="font-size:25px;"  onclick=" change_tab_to_current_user_stats()" id = 'current_user_stats_button' >My Statistics</h6>
+  <h6 class="btn w3-buttonColor btn-block w3-lobster" style="font-size:25px;"  onclick="change_tab_to_new_friends()" id = 'new_friend_button' >Find me new friends</h6>
+  <h6 class="btn w3-buttonColor btn-block w3-lobster" style="font-size:25px;"  onclick=" change_tab_to_find_owner()" id = 'find_owner' >Write messages, find owners!</h6><br>
+
+         <form action="/accounts/logout/" >
+             <input type="submit" class="btn w3-buttonColor btn-block w3-lobster" style="font-size:25px;" value="Log out">
+         </form>
+
+</nav>
+
+    <header class="w3-container w3-top w3-hide-large w3-mycolor w3-xlarge w3-padding">
+      <a href="javascript:void(0)" class="w3-button w3-mycolor w3-margin-right" onclick="w3_open()">☰</a>
+    </header>
+
+
+    <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <div class="w3-main" style="margin-left:400px;margin-right:40px">
+             <div id = "statistics" style="padding:10px">
+
+            </div>
+
+    </div>
+
+
+
+
+</body>
+
+
+
+
+</html>
+
+
+

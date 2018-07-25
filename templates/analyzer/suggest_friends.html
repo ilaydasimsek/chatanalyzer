@@ -1,0 +1,22 @@
+<head>
+  <script>
+      var best_match ={{ best_match | safe}};
+  </script>
+
+
+</head>
+<body>
+    <div class="w3-container" style="margin-top:0px" id="showcase">
+                    <h1 class="w3-half w3-lobster" style = 'text-align: left;color:#064752'><b>Best matches</b></h1>
+
+    </div>
+    {% if suggestion_list %}
+        {% for percentage,friendName in suggestion_list %}
+            <h3><span class="glyphicon glyphicon-fire" style = "color:pink"></span>You are {{ percentage }}% compatible with {{ friendName }}!</h3>
+
+        {% endfor %}
+
+    {% else %}
+        <h3>Sorry we can't suggest any friends to you right now.</h3>
+    {% endif %}
+</body>

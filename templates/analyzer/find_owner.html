@@ -1,0 +1,28 @@
+
+<head>
+    {% load static %}
+    <script src="{% static 'script/find_owner.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'script/js.cookie.js' %}"></script>
+    <script>
+        var findOwnerResult = "{%  url "analyzer:find_owner_result" %}";
+        $( document ).ready(function() {
+            create_form();
+        });
+    </script>
+</head>
+
+
+<body>
+    <div class="w3-container" style="margin-top:0px" id="showcase">
+                    <h1 class="w3-half w3-lobster" style = 'text-align: left;color:#064752;'><b>Give us a sentence and we shall find who it belongs to!</b></h1>
+    </div> <br><br><br><br><br><br>
+
+    <div id = "form" >
+    </div>
+    <br>
+    <h3 id = "result"></h3>
+
+</body>
+

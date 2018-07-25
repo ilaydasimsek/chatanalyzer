@@ -1,0 +1,14 @@
+
+# Python
+__pycache__/
+*.pyc
+*.xml
+
+
+# Django
+migrations/
+
+# Pickle files
+
+analyzer/trained_data/
+trained_data/

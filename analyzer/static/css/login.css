@@ -1,0 +1,22 @@
+
+#signinForm{
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    border-radius: 25px;
+    border: #c4d1d5 solid 1px;
+    width: 450px;
+    height: 250px;
+    padding: 10px;
+    background: #fef9ff;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+

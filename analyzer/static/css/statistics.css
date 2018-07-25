@@ -1,0 +1,25 @@
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+.w3-friendBtnColor{
+    background-color: #0c7186;
+    color:white;
+}
+.w3-buttonColor{
+    background-color:#063640;
+    color:white;
+}
+
+.w3-mycolor{
+    background-color: #f6f6f6;
+}
+.btn:hover {
+    color: white;
+    background-color: #074954;
+}
+
+.w3-loadMore{
+    background-color: #074954;
+}
+
