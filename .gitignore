@@ -7,8 +7,3 @@ __pycache__/
 
 # Django
 migrations/
-
-# Pickle files
-
-analyzer/trained_data/
-trained_data/
