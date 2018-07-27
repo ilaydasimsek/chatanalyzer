@@ -28,6 +28,11 @@ class Command(BaseCommand):
         self.save_user_statistics()
 
     def create_users(self):
+        user_friend_lists = [
+            [2, 3, 4], [1, 5, 6], [1, 5, 7],
+            [1, 5, 6, 7], [2, 3, 4], [2, 4, 9],
+            [3, 4, 8], [7, 9], [6, 8]
+        ]
         for i in range(1, 10):
             new_user = User()
             new_user.username = str(i)
@@ -35,6 +40,7 @@ class Command(BaseCommand):
             new_user.first_name = str(i)
             new_user.last_name = str(i)
             new_user.email_address = 'default@email.com'
+            new_user.friend_list = json.dumps(user_friend_lists[i-1])
             new_user.save()
             print("User {} is created".format(i))
 
